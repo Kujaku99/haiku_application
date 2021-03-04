@@ -1,0 +1,15 @@
+<div class="new-container">
+  <div class="input-container">
+    <%= form_tag("/posts/create") do %>
+      <h3>初句(五音)</h3><input type="text" name="first" value="<%= @post.first %>"></h3><br>
+      <h3>二句(七音)</h3><input type="text" name="second" value="<%= @post.second %>"></h3><br>
+      <h3>結句(五音)</h3><input type="text" name="third" value="<%= @post.third %>"></h3><br>
+      <input type="radio" name="season" value="0" checked="checked">無季
+      <input type="radio" name="season" value="1">春
+      <input type="radio" name="season" value="2">夏
+      <input type="radio" name="season" value="3">秋
+      <input type="radio" name="season" value="4">冬<br>
+      <input type="submit" value="詠む">
+    <% end %>
+  </div>
+</div>

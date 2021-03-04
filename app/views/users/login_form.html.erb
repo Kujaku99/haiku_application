@@ -1,0 +1,9 @@
+<div class="new-container">
+  <div class="input-container">
+    <%= form_tag("/users/login") do %>
+      <h3>メールアドレス</h3><input type="text" name="email" value="<%= params[:email] %>"><br>
+      <h3>パスワード</h3><input type="text" name="password"><br>
+      <input type="submit" value="ログイン">
+    <% end %>
+  </div>
+</div>

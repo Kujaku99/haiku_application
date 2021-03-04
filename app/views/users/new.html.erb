@@ -1,0 +1,10 @@
+<div class="new-container">
+  <div class="input-container">
+    <%= form_tag("/users/create") do %>
+      <h3>メールアドレス</h3><input type="text" name="email" value="<%= @user.email %>"><br>
+      <h3>ユーザー名</h3><input type="text" name="name" value="<%= @user.name %>"><br>
+      <h3>パスワード</h3><input type="text" name="password" value="<%= @user.password %>"><br>
+      <input type="submit" value="登録">
+    <% end %>
+  </div>
+</div>

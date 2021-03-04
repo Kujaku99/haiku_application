@@ -1,0 +1,38 @@
+<div class="show-container">
+  <div class="user-info">
+    <div class="id">
+      <%= "ユーザーID：#{@user.id}" %>
+    </div>
+    <div class="name">
+      <%= "ユーザー名：#{@user.name}" %>
+    </div>
+    <div class="email">
+      <%= "メールアドレス：#{@user.email}" %>
+    </div>
+  </div>
+  <% Post.where(user_id: params[:id]).each do |post| %>
+    <% if post.season == 0 %>
+      <div class="post none">
+    <% elsif post.season == 1 %>
+      <div class="post spring">
+    <% elsif post.season == 2 %>
+      <div class="post summer">
+    <% elsif post.season == 3 %>
+      <div class="post autumn">
+    <% elsif post.season == 4 %>
+      <div class="post winter">
+    <% end %>  
+        <div class="post-main">
+          <%= "#{post.first} #{post.second} #{post.third}" %>
+          <div class="user-name">
+            <% if session[:user_id] == post.user_id %>
+              <%= link_to("削除", "/posts/delete/#{post.id}", {method: :post, class: "delete"}) %>
+            <% end %>
+            <%= link_to("詠み人 #{User.find_by(id: post.user_id).name}さん", "/users/show/#{post.user_id}", class: "user-name") %>
+          </div>
+        </div>
+      </div>
+    
+    
+  <% end %>
+</div>
